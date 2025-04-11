@@ -1,0 +1,2364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renaud Dekode - Influenceur IA & Nouvelles Technologies</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'outfit': ['Outfit', 'sans-serif'],
+                        'space': ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#6c5ce7',
+                        'secondary': '#00cec9',
+                        'accent': '#fd79a8',
+                        'dark': '#2d3436',
+                        'light': '#f9fafb'
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #f9fafb;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #6c5ce7, #00cec9, #fd79a8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: gradient 5s ease infinite;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #6c5ce7, #00cec9);
+            background-size: 200% 200%;
+            animation: gradient-bg 15s ease infinite;
+        }
+
+        .gradient-border {
+            position: relative;
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #6c5ce7, #00cec9, #fd79a8, #6c5ce7);
+            z-index: -1;
+            border-radius: 0.5rem;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes gradient-bg {
+            0% {
+                background-position: 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        .card {
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #6c5ce7, #00cec9);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .blur-load {
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .blur-load::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            animation: pulse 2.5s infinite;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.2);
+            color: #6c5ce7;
+        }
+
+        .glitch-effect {
+            position: relative;
+            animation: glitch 5s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .cursor-glow {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'><circle cx='20' cy='20' r='10' fill='rgba(108, 92, 231, 0.4)'/></svg>"), auto;
+        }
+
+        .ai-particles {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(108, 92, 231, 0.5);
+            border-radius: 50%;
+            animation: float-particle 8s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(20px);
+                opacity: 0;
+            }
+        }
+
+        .timeline-item {
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #6c5ce7;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #6c5ce7;
+            left: 13.5px;
+            top: 25px;
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+        }
+
+        .service-card:hover {
+            background-position: 100% 100%;
+            transform: translateY(-5px);
+        }
+
+        .newsletter-input:focus {
+            box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.3);
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(108, 92, 231, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+    <meta name="description" content="Renaud Dekode - Influenceur IA & Nouvelles Technologies">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="cursor-glow">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-md transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <div class="text-3xl font-bold font-space">
+                        <span class="text-primary">Renaud</span><span class="gradient-text">Dekode</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#accueil" class="nav-link font-medium text-dark hover:text-primary transition-all">Accueil</a>
+                    <a href="#a-propos" class="nav-link font-medium text-dark hover:text-primary transition-all">À propos</a>
+                    <a href="#contenu" class="nav-link font-medium text-dark hover:text-primary transition-all">Contenu</a>
+                    <a href="#expertise" class="nav-link font-medium text-dark hover:text-primary transition-all">Expertise</a>
+                    <a href="#projets" class="nav-link font-medium text-dark hover:text-primary transition-all">Projets</a>
+                    <a href="#contact" class="nav-link font-medium text-dark hover:text-primary transition-all">Contact</a>
+                </div>
+                
+                <!-- Mobile Navigation Toggle -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-dark focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#accueil" class="block py-2 text-dark hover:text-primary font-medium">Accueil</a>
+                <a href="#a-propos" class="block py-2 text-dark hover:text-primary font-medium">À propos</a>
+                <a href="#contenu" class="block py-2 text-dark hover:text-primary font-medium">Contenu</a>
+                <a href="#expertise" class="block py-2 text-dark hover:text-primary font-medium">Expertise</a>
+                <a href="#projets" class="block py-2 text-dark hover:text-primary font-medium">Projets</a>
+                <a href="#contact" class="block py-2 text-dark hover:text-primary font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="pt-32 pb-20 lg:pt-40 lg:pb-32 ai-particles overflow-hidden relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center justify-between">
+                <div class="w-full lg:w-1/2 mb-10 lg:mb-0 z-10">
+                    <div class="glitch-effect mb-4">
+                        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 font-space leading-tight">
+                            Explorez le <span class="gradient-text">futur</span> de la technologie avec
+                        </h1>
+                    </div>
+                    <h2 class="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 font-space gradient-text">Renaud Dekode</h2>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-700 max-w-2xl">Influenceur, créateur de contenu et expert en intelligence artificielle, vous guidant à travers les innovations technologiques qui façonnent notre avenir.</p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="informations" class="gradient-bg text-white font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-center" id="page-link" data-page-id="67f90682f7a3b9ed377e1183">
+                            <i class="fas fa-rocket mr-2"></i> Découvrir mon contenu
+                        </a>
+                        <a href="#contact" class="bg-white text-primary border-2 border-primary font-semibold px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 text-center">
+                            <i class="fas fa-envelope mr-2"></i> Me contacter
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-4">
+                        <p class="text-gray-700 font-medium">Suivez-moi :</p>
+                        <a href="#" class="text-2xl text-dark hover:text-primary transition-all"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-2xl text-dark hover:text-primary transition-all"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-2xl text-dark hover:text-primary transition-all"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl text-dark hover:text-primary transition-all"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-2xl text-dark hover:text-primary transition-all"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2 relative z-10">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl transform rotate-6 scale-105 animate-pulse-slow"></div>
+                        <img src="https://d1olmvoet3matb.cloudfront.net/BFpf8KJm5T/images/6c86ccdc7fbd8004.png" alt="Renaud Dekode" class="w-full h-auto rounded-2xl shadow-2xl relative z-10 animate-float">
+                        
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl transform rotate-3 z-20">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-brain text-3xl text-primary"></i>
+                                <div>
+                                    <p class="text-sm text-gray-500">Expert en</p>
+                                    <p class="font-bold text-primary">Intelligence Artificielle</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-xl transform -rotate-3 z-20">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-video text-3xl text-secondary"></i>
+                                <div>
+                                    <p class="text-sm text-gray-500">Créateur</p>
+                                    <p class="font-bold text-secondary">+500K abonnés</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 py-6 px-8 bg-white rounded-2xl shadow-xl">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center">
+                        <p class="text-4xl font-bold gradient-text">500K+</p>
+                        <p class="text-gray-600">Abonnés YouTube</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-bold gradient-text">250+</p>
+                        <p class="text-gray-600">Vidéos publiées</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-bold gradient-text">50+</p>
+                        <p class="text-gray-600">Projets IA</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-bold gradient-text">15M+</p>
+                        <p class="text-gray-600">Vues totales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Particles -->
+        <div id="particles"></div>
+    </section>
+
+    <!-- À propos -->
+    <div class="py-12 bg-gray-100">
+  <div class="container flex flex-col items-center justify-center px-4 pt-2 pb-8 mx-auto sm:px-6 lg:px-8">
+    <p class="inline-block px-3 py-1 mb-4 text-xs font-semibold leading-tight tracking-widest text-indigo-700 uppercase bg-indigo-200 rounded-full">
+      Watch And Learn with
+    </p>
+    <h2 class="flex justify-center font-sans text-3xl font-bold leading-none tracking-tight text-center text-gray-900 b-6 sm:text-4xl md:mx-auto">
+      <svg class="w-8 h-8 mt-1 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z">
+        </path>
+      </svg>
+      <span class="relative">Our Latest Courses</span>
+    </h2>
+    <a href="#" class="mt-3 text-sm font-semibold text-indigo-600 underline">View Our Full
+      Library of Courses</a>
+
+    <div class="grid max-w-lg gap-5 mx-auto mt-12 md:grid-cols-2 lg:grid-cols-3 md:max-w-none">
+      <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+        <div class="relative flex-shrink-0">
+          <img class="object-cover w-full h-56" src="https://cdn.devdojo.com/episode/images/August2020/laravel-livewire-introduction1.jpg" alt="Cover image for livewire introduction course.">
+          <span class="absolute bottom-0 right-0 inline-flex items-center px-3 py-1 mr-4 -mb-3 text-xs font-medium leading-tight text-gray-800 bg-gray-100 border rounded-full">12
+            reviews</span>
+        </div>
+        <div class="flex flex-col justify-between flex-1">
+          <div class="flex flex-col justify-between flex-1 p-6 bg-white">
+            <div>
+              <a href="#" class="block text-xl font-semibold leading-7 text-gray-900">Mastering
+                Livewire</a>
+              <p class="mt-3 text-base leading-6 text-gray-500">Tired of Vue or
+                React? Why not try Livewire, the fullstack framework for dynamic
+                interfaces.</p>
+            </div>
+            <p class="mt-3 text-sm font-medium leading-5">
+              <a href="#" class="inline-block">
+                <span class="inline-flex items-center px-3 py-1 text-xs font-medium leading-tight text-blue-800 bg-blue-100 rounded-full">Livewire</span>
+              </a>
+            </p>
+          </div>
+          <div class="flex items-center p-6 bg-gray-100">
+            <div class="flex-shrink-0">
+              <a href="#">
+                <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">
+              </a>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-medium leading-5 text-gray-900">
+                <a href="#" class="hover:underline">Jane Cooper</a>
+              </p>
+              <div class="text-xs leading-5 text-gray-600">
+                <time datetime="2020-05-31">May 31, 2020</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+        <div class="relative flex-shrink-0">
+          <img class="object-cover w-full h-56" src="https://cdn.devdojo.com/images/September2017/creating-a-laravel-package-sd.jpg" alt="Cover image for creating a laravel package course.">
+          <span class="absolute bottom-0 right-0 inline-flex items-center px-3 py-1 mr-4 -mb-3 text-xs font-medium leading-tight text-gray-800 bg-gray-100 border rounded-full">16
+            reviews</span>
+        </div>
+        <div class="flex flex-col justify-between flex-1">
+          <div class="flex flex-col justify-between flex-1 p-6 bg-white">
+            <div>
+              <a href="#" class="block text-xl font-semibold leading-7 text-gray-900">Create
+                a Laravel
+                Package</a>
+              <p class="mt-3 text-base leading-6 text-gray-500">Join Richard on
+                the adventure of creating and releasing a new Laravel package.
+              </p>
+            </div>
+            <p class="mt-3 text-sm font-medium leading-5">
+              <a href="#" class="inline-block">
+                <span class="inline-flex items-center px-3 py-1 text-xs font-medium leading-tight text-red-800 bg-red-100 rounded-full">Laravel</span>
+              </a>
+            </p>
+          </div>
+          <div class="flex items-center p-6 bg-gray-100">
+            <div class="flex-shrink-0">
+              <a href="#">
+                <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80" alt="">
+              </a>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-medium leading-5 text-gray-900">
+                <a href="#" class="hover:underline">Richard Foster</a>
+              </p>
+              <div class="text-xs leading-5 text-gray-600">
+                <time datetime="2020-06-03">Jun 3, 2020</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col overflow-hidden rounded-lg shadow-lg">
+        <div class="relative flex-shrink-0">
+          <img class="object-cover w-full h-56" src="https://cdn.devdojo.com//images/March2017/laravel-dusk-sd.jpg" alt="Cover image for laravel dusk course.">
+          <span class="absolute bottom-0 right-0 inline-flex items-center px-3 py-1 mr-4 -mb-3 text-xs font-medium leading-tight text-gray-800 bg-gray-100 border rounded-full">22
+            reviews</span>
+        </div>
+        <div class="flex flex-col justify-between flex-1">
+          <div class="flex flex-col justify-between flex-1 p-6 bg-white">
+            <div>
+              <a href="#" class="text-xl font-semibold leading-7 text-gray-900">Laravel
+                Dusk</a>
+              <p class="mt-3 text-base leading-6 text-gray-500">Learn how
+                Laravel Dusk can help you to feature test your SPA automatically
+                with a simple API.</p>
+            </div>
+            <p class="mt-4 text-sm font-medium leading-5">
+              <a href="#" class="inline-block">
+                <span class="inline-flex items-center px-3 py-1 text-xs font-medium leading-tight text-red-800 bg-red-100 rounded-full">Laravel</span>
+              </a>
+              <a href="#" class="inline-block">
+                <span class="inline-flex items-center px-3 py-1 text-xs font-medium leading-tight text-purple-800 bg-purple-100 rounded-full">Dusk</span>
+              </a>
+            </p>
+          </div>
+          <div class="flex items-center p-6 bg-gray-100">
+            <div class="flex-shrink-0">
+              <a href="#">
+                <img class="w-10 h-10 rounded-full" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2.25&amp;w=256&amp;h=256&amp;q=80" alt="">
+              </a>
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-medium leading-5 text-gray-900">
+                <a href="#" class="hover:underline">John Cooper</a>
+              </p>
+              <div class="text-xs leading-5 text-gray-600">
+                <time datetime="2020-06-04">Jun 4, 2020</time>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><section class="bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 py-20 px-4 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-red-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-blue-300 mb-4">Forfaits Tarifaires</h2>
+            <p class="text-blue-200 text-lg md:text-xl max-w-3xl mx-auto">Choisissez le forfait parfait pour amplifier votre présence numérique avec nos services d'influenceurs IA</p>
+        </div>
+        
+        <!-- Pricing Toggle -->
+        <div class="flex justify-center items-center mb-12">
+            <span class="text-blue-200 mr-3">Mensuel</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="pricing-toggle" class="sr-only peer">
+                <div class="w-14 h-7 bg-blue-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-red-600"></div>
+            </label>
+            <span class="text-blue-200 ml-3">Annuel <span class="text-red-400 text-xs font-bold">Économisez 20%</span></span>
+        </div>
+        
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Starter Plan -->
+            <div class="bg-gradient-to-br from-blue-800/50 to-purple-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Débutant</h3>
+                    <div class="flex items-end">
+                        <span class="text-4xl font-bold text-white" id="starter-price">99€</span>
+                        <span class="text-blue-300 ml-2 mb-1">/mois</span>
+                    </div>
+                    <p class="text-blue-300 mt-2">Parfait pour les petites entreprises et les marques personnelles</p>
+                </div>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>1 personnage d'influenceur IA</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>10 publications personnalisées générées par IA par mois</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Analyses d'audience basiques</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Délai de réponse de 48 heures</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3 px-4 bg-blue-700 hover:bg-blue-600 text-white font-medium rounded-xl transition-colors duration-300">Commencer</button>
+            </div>
+            
+            <!-- Pro Plan -->
+            <div class="bg-gradient-to-br from-purple-700/50 to-red-700/50 backdrop-blur-sm rounded-2xl p-8 border border-red-500/50 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20 relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                    Le Plus Populaire
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Professionnel</h3>
+                    <div class="flex items-end">
+                        <span class="text-4xl font-bold text-white" id="pro-price">299€</span>
+                        <span class="text-blue-300 ml-2 mb-1">/mois</span>
+                    </div>
+                    <p class="text-blue-300 mt-2">Idéal pour les marques et entreprises en croissance</p>
+                </div>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>3 personnages d'influenceurs IA</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>30 publications personnalisées générées par IA par mois</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Analyses d'audience avancées</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Délai de réponse de 24 heures</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Planification du calendrier de contenu</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Rapports de performance mensuels</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3 px-4 bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white font-medium rounded-xl transition-all duration-300">Commencer</button>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="bg-gradient-to-br from-blue-800/50 to-purple-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Entreprise</h3>
+                    <div class="flex items-end">
+                        <span class="text-4xl font-bold text-white" id="enterprise-price">799€</span>
+                        <span class="text-blue-300 ml-2 mb-1">/mois</span>
+                    </div>
+                    <p class="text-blue-300 mt-2">Pour les marques établies et les sociétés</p>
+                </div>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Personnages d'influenceurs IA illimités</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>100 publications personnalisées générées par IA par mois</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Analyses et insights d'audience premium</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Délai de réponse prioritaire de 12 heures</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Stratégie de contenu avancée</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Gestionnaire de compte dédié</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Accès API pour intégration</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3 px-4 bg-blue-700 hover:bg-blue-600 text-white font-medium rounded-xl transition-colors duration-300">Contacter les Ventes</button>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="mt-20">
+            <h3 class="text-2xl font-bold text-white text-center mb-12">Tous les forfaits incluent</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-robot text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Contenu Propulsé par l'IA</h4>
+                    <p class="text-blue-300 text-sm">Contenu unique adapté à la voix de votre marque</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-chart-line text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Analyses de Performance</h4>
+                    <p class="text-blue-300 text-sm">Suivez les métriques d'engagement et de croissance</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-comments text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Engagement de l'Audience</h4>
+                    <p class="text-blue-300 text-sm">Réponses pilotées par l'IA aux interactions de l'audience</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-shield-alt text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Sécurité de la Marque</h4>
+                    <p class="text-blue-300 text-sm">Modération de contenu et alignement de la marque</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="mt-20">
+            <h3 class="text-2xl font-bold text-white text-center mb-12">Questions Fréquemment Posées</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Qu'est-ce qu'un influenceur IA ?</h4>
+                    <p class="text-blue-200">Les influenceurs IA sont des personnalités générées par ordinateur qui peuvent créer du contenu, interagir avec les audiences et représenter votre marque sur les plateformes sociales.</p>
+                </div>
+                
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Puis-je personnaliser l'apparence de mon influenceur IA ?</h4>
+                    <p class="text-blue-200">Oui, tous les forfaits incluent la possibilité de personnaliser l'apparence, la personnalité et la voix de votre influenceur IA pour s'aligner avec l'identité de votre marque.</p>
+                </div>
+                
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Comment mesurer le ROI ?</h4>
+                    <p class="text-blue-200">Notre tableau de bord d'analyse fournit des métriques complètes sur l'engagement, la portée, la conversion et la croissance de l'audience pour vous aider à mesurer la performance.</p>
+                </div>
+                
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Puis-je changer de forfait ultérieurement ?</h4>
+                    <p class="text-blue-200">Absolument ! Vous pouvez passer à un forfait supérieur ou inférieur à tout moment. Les changements seront reflétés dans votre prochain cycle de facturation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="mt-20 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Prêt à transformer votre présence numérique ?</h3>
+            <p class="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">Rejoignez des milliers de marques qui utilisent des influenceurs IA pour se connecter avec leur audience de façon innovante.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="px-8 py-4 bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white font-bold rounded-xl transition-all duration-300">Essai Gratuit</button>
+                <button class="px-8 py-4 bg-transparent border border-blue-400 text-blue-200 hover:bg-blue-800/30 font-bold rounded-xl transition-all duration-300">Demander une Démo</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle entre tarification mensuelle et annuelle
+        document.getElementById('pricing-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                // Tarification annuelle (20% de réduction)
+                document.getElementById('starter-price').textContent = '79€';
+                document.getElementById('pro-price').textContent = '239€';
+                document.getElementById('enterprise-price').textContent = '639€';
+            } else {
+                // Tarification mensuelle
+                document.getElementById('starter-price').textContent = '99€';
+                document.getElementById('pro-price').textContent = '299€';
+                document.getElementById('enterprise-price').textContent = '799€';
+            }
+        });
+    </script>
+</section><section id="a-propos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold font-space mb-4">À propos de <span class="gradient-text">Renaud Dekode</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Découvrez mon parcours et ma passion pour les technologies émergentes</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="gradient-border rounded-2xl overflow-hidden">
+                        <img src="https://images.unsplash.com/3/doctype-hi-res.jpg?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjU1MDF8MHwxfHNlYXJjaHwyMnx8ZGVzaWduZXJ8ZW58MHwwfHx8MTc0NDM3Mjk0M3ww&amp;ixlib=rb-4.0.3&amp;q=80&amp;w=1080" alt="Renaud Dekode au travail" class="w-full h-auto rounded-xl">
+                    </div>
+                    
+                    <div class="absolute -bottom-10 -right-10 bg-white p-6 rounded-2xl shadow-xl max-w-xs">
+                        <p class="text-lg italic text-gray-700">"Ma mission est de démystifier l'IA et les nouvelles technologies pour les rendre accessibles à tous."</p>
+                        <p class="mt-2 font-bold text-primary">- Renaud Dekode</p>
+                    </div>
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <h3 class="text-3xl font-bold mb-6 font-space">Qui suis-je ?</h3>
+                    
+                    <p class="text-gray-700 mb-6 text-lg">Passionné de technologie depuis mon plus jeune âge, j'ai consacré ma carrière à explorer et vulgariser les innovations qui façonnent notre futur. Spécialiste en intelligence artificielle, je partage mes connaissances à travers différentes plateformes pour rendre ces technologies complexes accessibles à tous.</p>
+                    
+                    <p class="text-gray-700 mb-6 text-lg">En tant qu'influenceur tech et créateur de contenu, je décrypte les avancées en IA, réalité augmentée, blockchain et autres technologies émergentes pour vous aider à comprendre leur impact sur notre quotidien et notre avenir.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-white p-5 rounded-xl shadow-md flex items-start">
+                            <i class="fas fa-lightbulb text-2xl text-primary mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Innovateur</h4>
+                                <p class="text-gray-600">Toujours à l'affût des dernières avancées technologiques</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-md flex items-start">
+                            <i class="fas fa-chalkboard-teacher text-2xl text-primary mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Éducateur</h4>
+                                <p class="text-gray-600">Je simplifie les concepts complexes pour les rendre accessibles</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-md flex items-start">
+                            <i class="fas fa-users text-2xl text-primary mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Communauté</h4>
+                                <p class="text-gray-600">Je bâtis une communauté d'enthousiastes de la tech</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-5 rounded-xl shadow-md flex items-start">
+                            <i class="fas fa-rocket text-2xl text-primary mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Visionnaire</h4>
+                                <p class="text-gray-600">J'explore les possibilités futures des technologies émergentes</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <span class="bg-primary/10 text-primary px-4 py-2 rounded-full font-medium">Intelligence Artificielle</span>
+                        <span class="bg-secondary/10 text-secondary px-4 py-2 rounded-full font-medium">Machine Learning</span>
+                        <span class="bg-accent/10 text-accent px-4 py-2 rounded-full font-medium">Réalité Augmentée</span>
+                        <span class="bg-primary/10 text-primary px-4 py-2 rounded-full font-medium">Blockchain</span>
+                        <span class="bg-secondary/10 text-secondary px-4 py-2 rounded-full font-medium">IoT</span>
+                        <span class="bg-accent/10 text-accent px-4 py-2 rounded-full font-medium">Cybersécurité</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline -->
+            <div class="mt-24">
+                <h3 class="text-3xl font-bold text-center mb-12 font-space">Mon <span class="gradient-text">parcours</span></h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 relative">
+                    <div class="timeline-item pl-16 pr-4">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <span class="text-sm text-gray-500">2015</span>
+                            <h4 class="text-xl font-bold mb-2">Début sur YouTube</h4>
+                            <p class="text-gray-700">Lancement de ma chaîne dédiée aux nouvelles technologies et à l'informatique.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pl-16 pr-4">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <span class="text-sm text-gray-500">2017</span>
+                            <h4 class="text-xl font-bold mb-2">Spécialisation en IA</h4>
+                            <p class="text-gray-700">Réorientation de mon contenu vers l'intelligence artificielle et ses applications.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pl-16 pr-4">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <span class="text-sm text-gray-500">2019</span>
+                            <h4 class="text-xl font-bold mb-2">100 000 abonnés</h4>
+                            <p class="text-gray-700">Atteinte d'une communauté de 100 000 passionnés de technologie et d'IA.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pl-16 pr-4">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <span class="text-sm text-gray-500">2021</span>
+                            <h4 class="text-xl font-bold mb-2">Lancement du podcast "IA Demystifiée"</h4>
+                            <p class="text-gray-700">Création d'un podcast hebdomadaire sur les avancées en intelligence artificielle.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pl-16 pr-4">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <span class="text-sm text-gray-500">2023</span>
+                            <h4 class="text-xl font-bold mb-2">Publication de mon livre</h4>
+                            <p class="text-gray-700">"L'IA pour tous : Comprendre les technologies qui façonnent notre avenir"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item pl-16 pr-4">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <span class="text-sm text-gray-500">2025</span>
+                            <h4 class="text-xl font-bold mb-2">Aujourd'hui</h4>
+                            <p class="text-gray-700">Plus de 500 000 abonnés et une communauté active d'enthousiastes de la tech.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu -->
+    <section id="contenu" class="py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold font-space mb-4">Mon <span class="gradient-text">contenu</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Explorez mes vidéos, articles et podcasts sur l'intelligence artificielle et les technologies émergentes</p>
+            </div>
+            
+            <!-- Featured Video -->
+            <div class="bg-dark rounded-3xl overflow-hidden shadow-2xl mb-16 relative">
+                <div class="aspect-w-16 aspect-h-9 relative">
+                    <img src="https://fakeimg.pl/1200x675" alt="Vidéo à la une" class="w-full h-auto">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="w-20 h-20 bg-primary rounded-full flex items-center justify-center shadow-lg transform transition-transform hover:scale-110">
+                            <i class="fas fa-play text-white text-2xl"></i>
+                        </button>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black to-transparent text-white">
+                        <span class="bg-primary px-3 py-1 rounded-full text-sm font-semibold inline-block mb-3">NOUVEAU</span>
+                        <h3 class="text-3xl font-bold mb-2">L'avenir de l'intelligence artificielle générative en 2025</h3>
+                        <p class="text-gray-300 mb-2">Explorez les dernières avancées en IA générative et leur impact sur notre société</p>
+                        <div class="flex items-center">
+                            <span class="mr-4"><i class="far fa-eye mr-1"></i> 245K vues</span>
+                            <span class="mr-4"><i class="far fa-clock mr-1"></i> 18:42</span>
+                            <span><i class="far fa-calendar-alt mr-1"></i> Il y a 3 jours</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Categories -->
+            <div class="mb-16">
+                <div class="flex flex-wrap justify-center gap-4 mb-10">
+                    <button class="px-6 py-3 rounded-full bg-primary text-white font-medium hover:bg-primary/90 transition-colors">Tous</button>
+                    <button class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300 transition-colors">Intelligence Artificielle</button>
+                    <button class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300 transition-colors">Machine Learning</button>
+                    <button class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300 transition-colors">Tutoriels</button>
+                    <button class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300 transition-colors">Tech News</button>
+                    <button class="px-6 py-3 rounded-full bg-gray-200 text-gray-700 font-medium hover:bg-gray-300 transition-colors">Interviews</button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Video Card 1 -->
+                    <div class="video-container rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x338" alt="Thumbnail" class="w-full h-auto">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Comment créer un assistant IA avec Python</h3>
+                            <p class="text-gray-600 mb-3">Apprenez à développer votre propre assistant intelligent en quelques étapes simples</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500"><i class="far fa-eye mr-1"></i> 182K vues</span>
+                                <span class="text-gray-500"><i class="far fa-clock mr-1"></i> 22:17</span>
+                            </div>
+                        </div>
+                        <div class="video-overlay">
+                            <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play text-primary text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Card 2 -->
+                    <div class="video-container rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x338" alt="Thumbnail" class="w-full h-auto">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Les 5 modèles d'IA les plus impressionnants de 2025</h3>
+                            <p class="text-gray-600 mb-3">Découvrez les innovations qui redéfinissent les limites de l'intelligence artificielle</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500"><i class="far fa-eye mr-1"></i> 203K vues</span>
+                                <span class="text-gray-500"><i class="far fa-clock mr-1"></i> 15:43</span>
+                            </div>
+                        </div>
+                        <div class="video-overlay">
+                            <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play text-primary text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Card 3 -->
+                    <div class="video-container rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x338" alt="Thumbnail" class="w-full h-auto">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Interview exclusive avec le CEO de Quantum AI</h3>
+                            <p class="text-gray-600 mb-3">Une discussion passionnante sur l'avenir de l'IA quantique et ses applications</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500"><i class="far fa-eye mr-1"></i> 156K vues</span>
+                                <span class="text-gray-500"><i class="far fa-clock mr-1"></i> 31:05</span>
+                            </div>
+                        </div>
+                        <div class="video-overlay">
+                            <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play text-primary text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Card 4 -->
+                    <div class="video-container rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x338" alt="Thumbnail" class="w-full h-auto">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">L'éthique de l'IA : enjeux et responsabilités</h3>
+                            <p class="text-gray-600 mb-3">Analyse des implications éthiques du développement de l'intelligence artificielle</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500"><i class="far fa-eye mr-1"></i> 142K vues</span>
+                                <span class="text-gray-500"><i class="far fa-clock mr-1"></i> 27:39</span>
+                            </div>
+                        </div>
+                        <div class="video-overlay">
+                            <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play text-primary text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Card 5 -->
+                    <div class="video-container rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x338" alt="Thumbnail" class="w-full h-auto">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">IA et créativité : révolution artistique</h3>
+                            <p class="text-gray-600 mb-3">Comment l'intelligence artificielle transforme la création artistique et le design</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500"><i class="far fa-eye mr-1"></i> 178K vues</span>
+                                <span class="text-gray-500"><i class="far fa-clock mr-1"></i> 19:27</span>
+                            </div>
+                        </div>
+                        <div class="video-overlay">
+                            <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play text-primary text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Card 6 -->
+                    <div class="video-container rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x338" alt="Thumbnail" class="w-full h-auto">
+                        <div class="p-5">
+                            <h3 class="text-xl font-bold mb-2">Deep Learning expliqué simplement</h3>
+                            <p class="text-gray-600 mb-3">Les concepts fondamentaux du deep learning rendus accessibles à tous</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500"><i class="far fa-eye mr-1"></i> 215K vues</span>
+                                <span class="text-gray-500"><i class="far fa-clock mr-1"></i> 24:51</span>
+                            </div>
+                        </div>
+                        <div class="video-overlay">
+                            <button class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                <i class="fas fa-play text-primary text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="#" class="inline-block px-8 py-4 bg-white border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-video mr-2"></i> Voir plus de vidéos
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Podcast Section -->
+            <div class="mt-24">
+                <h3 class="text-3xl font-bold text-center mb-10 font-space">Mon <span class="gradient-text">podcast</span></h3>
+                
+                <div class="bg-gray-50 rounded-3xl p-8 shadow-lg">
+                    <div class="flex flex-col lg:flex-row items-center gap-8">
+                        <div class="w-full lg:w-1/3">
+                            <img src="https://fakeimg.pl/500x500" alt="Podcast IA Démystifiée" class="w-full h-auto rounded-2xl shadow-lg">
+                        </div>
+                        
+                        <div class="w-full lg:w-2/3">
+                            <h4 class="text-2xl font-bold mb-4">IA Démystifiée - Le podcast qui rend l'IA accessible</h4>
+                            <p class="text-gray-700 mb-6">Chaque semaine, je décrypte les dernières avancées en intelligence artificielle et nouvelles technologies, avec des invités experts et des analyses accessibles à tous.</p>
+                            
+                            <div class="flex flex-wrap gap-4 mb-8">
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 bg-[#9933CC] text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                                    <i class="fab fa-spotify text-xl"></i> Spotify
+                                </a>
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 bg-[#5A2D81] text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                                    <i class="fas fa-podcast text-xl"></i> Apple Podcasts
+                                </a>
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 bg-[#FF0000] text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                                    <i class="fab fa-youtube text-xl"></i> YouTube
+                                </a>
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 bg-[#5000B9] text-white rounded-lg hover:bg-opacity-90 transition-colors">
+                                    <i class="fas fa-rss text-xl"></i> RSS
+                                </a>
+                            </div>
+                            
+                            <div class="border-t border-gray-200 pt-6">
+                                <h5 class="font-bold mb-4">Derniers épisodes :</h5>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-4">
+                                        <button class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                        <div>
+                                            <p class="font-medium">Épisode 45: L'IA et le futur du travail</p>
+                                            <p class="text-sm text-gray-500">52 min · Publié le 15 mars 2025</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-4">
+                                        <button class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                        <div>
+                                            <p class="font-medium">Épisode 44: Interview avec Dr. Sarah Chen, experte en IA médicale</p>
+                                            <p class="text-sm text-gray-500">65 min · Publié le 1er mars 2025</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center gap-4">
+                                        <button class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-primary/90 transition-colors">
+                                            <i class="fas fa-play"></i>
+                                        </button>
+                                        <div>
+                                            <p class="font-medium">Épisode 43: Les modèles multimodaux - Voir, entendre et comprendre</p>
+                                            <p class="text-sm text-gray-500">47 min · Publié le 15 février 2025</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Blog Posts -->
+            <div class="mt-24">
+                <h3 class="text-3xl font-bold text-center mb-10 font-space">Articles <span class="gradient-text">récents</span></h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x400" alt="Blog post" class="w-full h-auto">
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">IA</span>
+                                <span class="text-gray-500 text-sm">12 mars 2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">L'IA conversationnelle en 2025 : où en sommes-nous ?</h3>
+                            <p class="text-gray-600 mb-4">Une analyse approfondie des avancées en matière d'agents conversationnels et leur impact sur notre quotidien.</p>
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Post 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x400" alt="Blog post" class="w-full h-auto">
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Tech</span>
+                                <span class="text-gray-500 text-sm">28 février 2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Comment l'IA révolutionne la santé personnalisée</h3>
+                            <p class="text-gray-600 mb-4">Découvrez comment l'intelligence artificielle transforme la médecine et permet des traitements sur mesure.</p>
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog Post 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                        <img src="https://fakeimg.pl/600x400" alt="Blog post" class="w-full h-auto">
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Guide</span>
+                                <span class="text-gray-500 text-sm">15 février 2025</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">10 outils d'IA que tout professionnel devrait connaître</h3>
+                            <p class="text-gray-600 mb-4">Une sélection des meilleurs outils d'intelligence artificielle pour augmenter votre productivité.</p>
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                Lire l'article <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="#" class="inline-block px-8 py-4 bg-white border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-book mr-2"></i> Voir tous les articles
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section id="expertise" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold font-space mb-4">Mon <span class="gradient-text">expertise</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Découvrez mes domaines de spécialisation en intelligence artificielle et technologies émergentes</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Expertise Card 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg service-card bg-gradient-to-br from-white to-primary/5">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Intelligence Artificielle</h3>
+                    <p class="text-gray-600 mb-6">Expert en systèmes d'IA, apprentissage automatique et réseaux de neurones profonds. Je maîtrise les dernières avancées en IA générative et prédictive.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Systèmes d'IA générative</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Réseaux de neurones</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Traitement du langage naturel</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise Card 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg service-card bg-gradient-to-br from-white to-secondary/5">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Machine Learning</h3>
+                    <p class="text-gray-600 mb-6">Spécialiste en algorithmes d'apprentissage automatique, analyse prédictive et modèles de classification. Je développe des solutions ML innovantes.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Algorithmes supervisés/non supervisés</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Computer Vision</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Analyse prédictive</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise Card 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg service-card bg-gradient-to-br from-white to-accent/5">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-vr-cardboard text-accent text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Réalité Augmentée/Virtuelle</h3>
+                    <p class="text-gray-600 mb-6">Expert en technologies immersives, conception d'expériences AR/VR et intégration avec l'IA pour créer des applications innovantes.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Développement AR/VR</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Interfaces immersives</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Intégration IA et réalité mixte</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise Card 4 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg service-card bg-gradient-to-br from-white to-primary/5">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-microchip text-primary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Objets Connectés (IoT)</h3>
+                    <p class="text-gray-600 mb-6">Spécialiste en conception et déploiement de solutions IoT, intégration avec l'IA et analyse des données massives issues d'appareils connectés.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Architectures IoT</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Smart Home/City</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-primary mr-2"></i>
+                            <span>Edge Computing</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise Card 5 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg service-card bg-gradient-to-br from-white to-secondary/5">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-secondary text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Cybersécurité</h3>
+                    <p class="text-gray-600 mb-6">Expert en sécurité des systèmes d'IA, protection des données et détection des menaces par intelligence artificielle pour des systèmes robustes.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Sécurité des systèmes d'IA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Détection d'intrusions par IA</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-secondary mr-2"></i>
+                            <span>Protection de la vie privée</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Expertise Card 6 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg service-card bg-gradient-to-br from-white to-accent/5">
+                    <div class="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cubes text-accent text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Blockchain &amp; Web3</h3>
+                    <p class="text-gray-600 mb-6">Spécialiste des technologies blockchain, applications décentralisées et intégration avec l'IA pour créer des systèmes innovants et sécurisés.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>Smart Contracts</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>DApps (Applications décentralisées)</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-accent mr-2"></i>
+                            <span>IA + Blockchain</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Technologies -->
+            <div class="mt-20">
+                <h3 class="text-3xl font-bold text-center mb-10 font-space">Technologies <span class="gradient-text">maîtrisées</span></h3>
+                
+                <div class="bg-white rounded-2xl shadow-lg p-10">
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10">
+                        <div class="flex flex-col items-center">
+                            <i class="fab fa-python text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">Python</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fab fa-js text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">JavaScript</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-database text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">SQL/NoSQL</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fab fa-aws text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">AWS</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fab fa-docker text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">Docker</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fab fa-react text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">React</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-code-branch text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">Git</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-cloud text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">Cloud</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-network-wired text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">TensorFlow</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-chart-line text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">PyTorch</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-microchip text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">Raspberry Pi</p>
+                        </div>
+                        
+                        <div class="flex flex-col items-center">
+                            <i class="fas fa-robot text-5xl tech-icon text-gray-700"></i>
+                            <p class="mt-3 font-medium">ROS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold font-space mb-4">Mes <span class="gradient-text">projets</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Découvrez les projets innovants sur lesquels je travaille dans le domaine de l'intelligence artificielle</p>
+            </div>
+            
+            <!-- Featured Project -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-xl mb-16">
+                <div class="flex flex-col lg:flex-row">
+                    <div class="w-full lg:w-1/2">
+                        <img src="https://fakeimg.pl/800x600" alt="Projet à la une" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <div class="w-full lg:w-1/2 p-8 md:p-12">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Projet phare</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">IA</span>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold mb-4">NeuroAssist - Assistant IA personnel</h3>
+                        
+                        <p class="text-gray-700 mb-6">NeuroAssist est un assistant personnel propulsé par l'intelligence artificielle qui apprend de vos habitudes et préférences pour vous offrir une expérience totalement personnalisée. Capable de gérer votre agenda, répondre à vos questions et vous assister dans vos tâches quotidiennes avec une compréhension contextuelle avancée.</p>
+                        
+                        <div class="mb-6">
+                            <h4 class="font-bold mb-3">Fonctionnalités principales :</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Compréhension contextuelle avancée</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Apprentissage continu basé sur vos interactions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Interface vocale naturelle multilingue</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                    <span>Intégration avec vos applications préférées</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#" class="gradient-bg text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all text-center">
+                                <i class="fas fa-external-link-alt mr-2"></i> Découvrir le projet
+                            </a>
+                            <a href="#" class="bg-white text-primary border-2 border-primary font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all text-center">
+                                <i class="fab fa-github mr-2"></i> Voir le code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                    <img src="https://fakeimg.pl/600x400" alt="Projet" class="w-full h-auto">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">IA</span>
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Vision</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">VisionAI - Analyse d'images en temps réel</h3>
+                        <p class="text-gray-600 mb-4">Système de vision par ordinateur capable d'analyser et d'interpréter des images en temps réel pour diverses applications industrielles et de sécurité.</p>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                    <img src="https://fakeimg.pl/600x400" alt="Projet" class="w-full h-auto">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">AR</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Mobile</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">ARLearning - Éducation en réalité augmentée</h3>
+                        <p class="text-gray-600 mb-4">Plateforme éducative utilisant la réalité augmentée pour transformer l'apprentissage en expérience interactive et immersive.</p>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                    <img src="https://fakeimg.pl/600x400" alt="Projet" class="w-full h-auto">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">NLP</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Web</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">SentimentAnalyzer - Analyse de sentiment avancée</h3>
+                        <p class="text-gray-600 mb-4">Outil d'analyse de sentiment utilisant le NLP pour détecter les émotions et opinions dans les textes avec une haute précision.</p>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                    <img src="https://fakeimg.pl/600x400" alt="Projet" class="w-full h-auto">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">IoT</span>
+                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Smart Home</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">SmartEco - Système domotique écologique</h3>
+                        <p class="text-gray-600 mb-4">Plateforme IoT intelligente qui optimise la consommation d'énergie dans les maisons en apprenant des habitudes des occupants.</p>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                    <img src="https://fakeimg.pl/600x400" alt="Projet" class="w-full h-auto">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-sm font-medium">Blockchain</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">Web3</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">DecentralLearn - Plateforme d'apprentissage décentralisée</h3>
+                        <p class="text-gray-600 mb-4">Système éducatif basé sur la blockchain qui certifie les compétences et permet un apprentissage peer-to-peer sécurisé.</p>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 6 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg card">
+                    <img src="https://fakeimg.pl/600x400" alt="Projet" class="w-full h-auto">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">Santé</span>
+                            <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">IA</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">HealthPredict - Prédiction de risques médicaux</h3>
+                        <p class="text-gray-600 mb-4">Système prédictif qui analyse les données de santé pour identifier les risques potentiels et recommander des actions préventives.</p>
+                        <div class="flex justify-between">
+                            <a href="#" class="text-primary font-medium hover:underline flex items-center">
+                                En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block px-8 py-4 bg-white border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                    <i class="fas fa-project-diagram mr-2"></i> Voir tous les projets
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-primary to-secondary rounded-3xl p-8 md:p-12 shadow-xl">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="text-white md:w-1/2">
+                        <h3 class="text-3xl font-bold mb-4">Restez informé des dernières avancées en IA</h3>
+                        <p class="text-white/90 mb-4">Abonnez-vous à ma newsletter et recevez des analyses exclusives, des tutoriels et des actualités sur l'intelligence artificielle et les technologies émergentes.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span>Contenu exclusif non disponible sur YouTube</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span>Analyses approfondies des dernières tendances en IA</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle mr-2"></i>
+                                <span>Accès anticipé à mes nouveaux projets et contenus</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2">
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <h4 class="text-xl font-bold mb-4 text-dark">Inscrivez-vous gratuitement</h4>
+                            <form>
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 mb-2">Nom</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 newsletter-input" placeholder="Votre nom">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50 newsletter-input" placeholder="votre@email.com">
+                                </div>
+                                
+                                <button type="submit" class="w-full gradient-bg text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all">
+                                    <i class="fas fa-paper-plane mr-2"></i> S'inscrire à la newsletter
+                                </button>
+                                
+                                <p class="text-xs text-gray-500 mt-3 text-center">En vous inscrivant, vous acceptez de recevoir des emails de ma part. Vous pourrez vous désabonner à tout moment.</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><section class="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Découvrez les retours de ceux qui ont collaboré avec moi ou suivi mon contenu</p>
+                <h2 class="text-4xl font-bold font-space mb-4">Ce qu'ils <span class="gradient-text">disent</span> de moi</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg relative">
+                    <div class="text-primary text-6xl absolute -top-6 -left-3 opacity-20">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <p class="text-gray-700 mb-6 italic">"J'ai eu le plaisir de collaborer avec Renaud sur plusieurs projets d'IA. Sa profondeur technique combinée à sa créativité en font un partenaire exceptionnel. Il voit des solutions là où d'autres voient des obstacles."</p>
+                        
+                        <div class="flex items-center">
+                            <img src="https://fakeimg.pl/60x60" alt="Laure Chen" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">Laure Chen</p>
+                                <p class="text-gray-500 text-sm">Lead Data Scientist, DataCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg relative">
+                    <div class="text-primary text-6xl absolute -top-6 -left-3 opacity-20">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <p class="text-gray-700 mb-6 italic">"En tant que CEO d'une startup tech, les analyses de Renaud sur les tendances en IA nous ont aidés à prendre des décisions stratégiques cruciales. Son expertise et sa vision sont inestimables pour notre industrie."</p>
+                        
+                        <div class="flex items-center">
+                            <img src="https://fakeimg.pl/60x60" alt="Thomas Dubois" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">Thomas Dubois</p>
+                                <p class="text-gray-500 text-sm">CEO, TechInnovate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg relative">
+                    <div class="text-primary text-6xl absolute -top-6 -left-3 opacity-20">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <p class="text-gray-700 mb-6 italic">"Renaud a une capacité incroyable à simplifier des concepts d'IA complexes. Ses vidéos m'ont permis de comprendre le machine learning alors que je n'avais aucune base technique. Un vrai talent de vulgarisateur !"</p>
+                        
+                        <div class="flex items-center">
+                            <img src="https://fakeimg.pl/60x60" alt="Sophie Martin" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold">Sophie Martin</p>
+                                <p class="text-gray-500 text-sm">Étudiante en informatique</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partners -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-10">Ils m'ont fait confiance</h3>
+                
+                <div class="flex flex-wrap justify-center items-center gap-12 opacity-75">
+                    <img src="https://fakeimg.pl/150x60" alt="Partenaire" class="h-12 w-auto grayscale hover:grayscale-0 transition-all">
+                    <img src="https://fakeimg.pl/150x60" alt="Partenaire" class="h-12 w-auto grayscale hover:grayscale-0 transition-all">
+                    <img src="https://fakeimg.pl/150x60" alt="Partenaire" class="h-12 w-auto grayscale hover:grayscale-0 transition-all">
+                    <img src="https://fakeimg.pl/150x60" alt="Partenaire" class="h-12 w-auto grayscale hover:grayscale-0 transition-all">
+                    <img src="https://fakeimg.pl/150x60" alt="Partenaire" class="h-12 w-auto grayscale hover:grayscale-0 transition-all">
+                    <img src="https://fakeimg.pl/150x60" alt="Partenaire" class="h-12 w-auto grayscale hover:grayscale-0 transition-all">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold font-space mb-4">Entrons en <span class="gradient-text">contact</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Vous avez une question, une proposition de collaboration ou simplement envie d'échanger ? N'hésitez pas à me contacter !</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="w-full lg:w-1/2">
+                    <form class="bg-white p-8 rounded-2xl shadow-lg">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label for="firstname" class="block text-gray-700 mb-2">Prénom</label>
+                                <input type="text" id="firstname" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Votre prénom">
+                            </div>
+                            
+                            <div>
+                                <label for="lastname" class="block text-gray-700 mb-2">Nom</label>
+                                <input type="text" id="lastname" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Votre nom">
+                            </div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="contact-email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="contact-email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="votre@email.com">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="subject" class="block text-gray-700 mb-2">Sujet</label>
+                            <select id="subject" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                                <option value="" disabled="" selected="">Sélectionnez un sujet</option>
+                                <option value="collaboration">Proposition de collaboration</option>
+                                <option value="speaking">Invitation à un événement</option>
+                                <option value="question">Question technique</option>
+                                <option value="other">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Votre message..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full gradient-bg text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all">
+                            <i class="fas fa-paper-plane mr-2"></i> Envoyer le message
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg mb-8">
+                        <h3 class="text-2xl font-bold mb-6">Informations de contact</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Email</h4>
+                                    <p class="text-gray-600">contact@renauddekode.com</p>
+                                    <p class="text-gray-600">business@renauddekode.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Localisation</h4>
+                                    <p class="text-gray-600">Paris, France</p>
+                                    <p class="text-gray-600">Disponible pour des projets à distance</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-clock text-primary text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg">Disponibilité</h4>
+                                    <p class="text-gray-600">Réponse sous 48h</p>
+                                    <p class="text-gray-600">Lun-Ven: 9h-18h (CET)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Suivez-moi</h3>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="#" class="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-youtube text-[#FF0000] text-3xl mr-3"></i>
+                                <div>
+                                    <p class="font-medium">YouTube</p>
+                                    <p class="text-gray-500 text-sm">@RenaudDekode</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-twitter text-[#1DA1F2] text-3xl mr-3"></i>
+                                <div>
+                                    <p class="font-medium">Twitter</p>
+                                    <p class="text-gray-500 text-sm">@RenaudDekode</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-linkedin text-[#0A66C2] text-3xl mr-3"></i>
+                                <div>
+                                    <p class="font-medium">LinkedIn</p>
+                                    <p class="text-gray-500 text-sm">in/renaud-dekode</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-github text-[#333333] text-3xl mr-3"></i>
+                                <div>
+                                    <p class="font-medium">GitHub</p>
+                                    <p class="text-gray-500 text-sm">@RenaudDekode</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-instagram text-[#E4405F] text-3xl mr-3"></i>
+                                <div>
+                                    <p class="font-medium">Instagram</p>
+                                    <p class="text-gray-500 text-sm">@RenaudDekode</p>
+                                </div>
+                            </a>
+                            
+                            <a href="#" class="flex items-center p-4 rounded-xl hover:bg-gray-50 transition-colors">
+                                <i class="fab fa-tiktok text-[#000000] text-3xl mr-3"></i>
+                                <div>
+                                    <p class="font-medium">TikTok</p>
+                                    <p class="text-gray-500 text-sm">@RenaudDekode</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="bg-gradient-to-br from-blue-900 via-purple-900 to-red-900 py-20 px-4 relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute top-0 right-0 w-72 h-72 bg-red-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+    <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-red-300 to-blue-300 mb-4">Forfaits Tarifaires</h2>
+            <p class="text-blue-200 text-lg md:text-xl max-w-3xl mx-auto">Choisissez le forfait parfait pour amplifier votre présence numérique avec nos services d'influenceurs IA</p>
+        </div>
+        
+        <!-- Pricing Toggle -->
+        <div class="flex justify-center items-center mb-12">
+            <span class="text-blue-200 mr-3">Mensuel</span>
+            <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="pricing-toggle" class="sr-only peer">
+                <div class="w-14 h-7 bg-blue-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-red-600"></div>
+            </label>
+            <span class="text-blue-200 ml-3">Annuel <span class="text-red-400 text-xs font-bold">Économisez 20%</span></span>
+        </div>
+        
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Starter Plan -->
+            <div class="bg-gradient-to-br from-blue-800/50 to-purple-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Débutant</h3>
+                    <div class="flex items-end">
+                        <span class="text-4xl font-bold text-white" id="starter-price">99€</span>
+                        <span class="text-blue-300 ml-2 mb-1">/mois</span>
+                    </div>
+                    <p class="text-blue-300 mt-2">Parfait pour les petites entreprises et les marques personnelles</p>
+                </div>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>1 personnage d'influenceur IA</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>10 publications personnalisées générées par IA par mois</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Analyses d'audience basiques</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Délai de réponse de 48 heures</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3 px-4 bg-blue-700 hover:bg-blue-600 text-white font-medium rounded-xl transition-colors duration-300">Commencer</button>
+            </div>
+            
+            <!-- Pro Plan -->
+            <div class="bg-gradient-to-br from-purple-700/50 to-red-700/50 backdrop-blur-sm rounded-2xl p-8 border border-red-500/50 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20 relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-purple-500 text-white px-4 py-1 rounded-full text-sm font-bold">
+                    Le Plus Populaire
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Professionnel</h3>
+                    <div class="flex items-end">
+                        <span class="text-4xl font-bold text-white" id="pro-price">299€</span>
+                        <span class="text-blue-300 ml-2 mb-1">/mois</span>
+                    </div>
+                    <p class="text-blue-300 mt-2">Idéal pour les marques et entreprises en croissance</p>
+                </div>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>3 personnages d'influenceurs IA</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>30 publications personnalisées générées par IA par mois</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Analyses d'audience avancées</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Délai de réponse de 24 heures</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Planification du calendrier de contenu</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Rapports de performance mensuels</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3 px-4 bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white font-medium rounded-xl transition-all duration-300">Commencer</button>
+            </div>
+            
+            <!-- Enterprise Plan -->
+            <div class="bg-gradient-to-br from-blue-800/50 to-purple-800/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-700/50 transform transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-500/20">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-white mb-2">Entreprise</h3>
+                    <div class="flex items-end">
+                        <span class="text-4xl font-bold text-white" id="enterprise-price">799€</span>
+                        <span class="text-blue-300 ml-2 mb-1">/mois</span>
+                    </div>
+                    <p class="text-blue-300 mt-2">Pour les marques établies et les sociétés</p>
+                </div>
+                
+                <ul class="space-y-4 mb-8">
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Personnages d'influenceurs IA illimités</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>100 publications personnalisées générées par IA par mois</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Analyses et insights d'audience premium</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Délai de réponse prioritaire de 12 heures</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Stratégie de contenu avancée</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Gestionnaire de compte dédié</span>
+                    </li>
+                    <li class="flex items-center text-blue-100">
+                        <i class="fa fa-check text-red-400 mr-3"></i>
+                        <span>Accès API pour intégration</span>
+                    </li>
+                </ul>
+                
+                <button class="w-full py-3 px-4 bg-blue-700 hover:bg-blue-600 text-white font-medium rounded-xl transition-colors duration-300">Contacter les Ventes</button>
+            </div>
+        </div>
+        
+        <!-- Features Section -->
+        <div class="mt-20">
+            <h3 class="text-2xl font-bold text-white text-center mb-12">Tous les forfaits incluent</h3>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-robot text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Contenu Propulsé par l'IA</h4>
+                    <p class="text-blue-300 text-sm">Contenu unique adapté à la voix de votre marque</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-chart-line text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Analyses de Performance</h4>
+                    <p class="text-blue-300 text-sm">Suivez les métriques d'engagement et de croissance</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-comments text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Engagement de l'Audience</h4>
+                    <p class="text-blue-300 text-sm">Réponses pilotées par l'IA aux interactions de l'audience</p>
+                </div>
+                
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-16 h-16 rounded-full bg-red-500/20 flex items-center justify-center mb-4">
+                        <i class="fa fa-shield-alt text-2xl text-red-400"></i>
+                    </div>
+                    <h4 class="text-white font-medium mb-2">Sécurité de la Marque</h4>
+                    <p class="text-blue-300 text-sm">Modération de contenu et alignement de la marque</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <div class="mt-20">
+            <h3 class="text-2xl font-bold text-white text-center mb-12">Questions Fréquemment Posées</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Qu'est-ce qu'un influenceur IA ?</h4>
+                    <p class="text-blue-200">Les influenceurs IA sont des personnalités générées par ordinateur qui peuvent créer du contenu, interagir avec les audiences et représenter votre marque sur les plateformes sociales.</p>
+                </div>
+                
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Puis-je personnaliser l'apparence de mon influenceur IA ?</h4>
+                    <p class="text-blue-200">Oui, tous les forfaits incluent la possibilité de personnaliser l'apparence, la personnalité et la voix de votre influenceur IA pour s'aligner avec l'identité de votre marque.</p>
+                </div>
+                
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Comment mesurer le ROI ?</h4>
+                    <p class="text-blue-200">Notre tableau de bord d'analyse fournit des métriques complètes sur l'engagement, la portée, la conversion et la croissance de l'audience pour vous aider à mesurer la performance.</p>
+                </div>
+                
+                <div class="bg-blue-800/30 backdrop-blur-sm rounded-xl p-6 border border-blue-700/50">
+                    <h4 class="text-white font-bold mb-3">Puis-je changer de forfait ultérieurement ?</h4>
+                    <p class="text-blue-200">Absolument ! Vous pouvez passer à un forfait supérieur ou inférieur à tout moment. Les changements seront reflétés dans votre prochain cycle de facturation.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA -->
+        <div class="mt-20 text-center">
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-6">Prêt à transformer votre présence numérique ?</h3>
+            <p class="text-blue-200 text-lg mb-8 max-w-2xl mx-auto">Rejoignez des milliers de marques qui utilisent des influenceurs IA pour se connecter avec leur audience de façon innovante.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="px-8 py-4 bg-gradient-to-r from-red-500 to-purple-500 hover:from-red-600 hover:to-purple-600 text-white font-bold rounded-xl transition-all duration-300">Essai Gratuit</button>
+                <button class="px-8 py-4 bg-transparent border border-blue-400 text-blue-200 hover:bg-blue-800/30 font-bold rounded-xl transition-all duration-300">Demander une Démo</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle entre tarification mensuelle et annuelle
+        document.getElementById('pricing-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                // Tarification annuelle (20% de réduction)
+                document.getElementById('starter-price').textContent = '79€';
+                document.getElementById('pro-price').textContent = '239€';
+                document.getElementById('enterprise-price').textContent = '639€';
+            } else {
+                // Tarification mensuelle
+                document.getElementById('starter-price').textContent = '99€';
+                document.getElementById('pro-price').textContent = '299€';
+                document.getElementById('enterprise-price').textContent = '799€';
+            }
+        });
+    </script>
+</section><footer class="bg-dark text-white pt-20 pb-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between mb-12">
+                <div class="mb-10 lg:mb-0 lg:w-1/3 pr-8">
+                    <div class="text-3xl font-bold font-space mb-6">
+                        <span class="text-primary">Renaud</span><span class="gradient-text">Dekode</span>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6">Influenceur, créateur de contenu et expert en intelligence artificielle, vous guidant à travers les innovations technologiques qui façonnent notre avenir.</p>
+                    
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8 lg:w-2/3">
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Navigation</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#accueil" class="text-gray-400 hover:text-white transition-colors">Accueil</a></li>
+                            <li><a href="#a-propos" class="text-gray-400 hover:text-white transition-colors">À propos</a></li>
+                            <li><a href="#contenu" class="text-gray-400 hover:text-white transition-colors">Contenu</a></li>
+                            <li><a href="#expertise" class="text-gray-400 hover:text-white transition-colors">Expertise</a></li>
+                            <li><a href="#projets" class="text-gray-400 hover:text-white transition-colors">Projets</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Contenu</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">YouTube</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Podcast</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Ressources</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tutoriels</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Légal</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Mentions légales</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Conditions d'utilisation</a></li>
+                            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 mt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Renaud Dekode. Tous droits réservés.</p>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg z-50 opacity-0 invisible transition-all">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.add('opacity-0', 'invisible');
+                backToTopButton.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('nav');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+            } else {
+                navbar.classList.add('py-4');
+                navbar.classList.remove('py-2');
+            }
+        });
+        
+        // AI Particles Effect
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            const particlesContainer = document.querySelector('.ai-particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random positioning
+                const posX = Math.random() * particlesContainer.offsetWidth;
+                const posY = Math.random() * particlesContainer.offsetHeight;
+                particle.style.left = `${posX}px`;
+                particle.style.top = `${posY}px`;
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random animation duration
+                const duration = Math.random() * 15 + 5;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                const delay = Math.random() * 5;
+                particle.style.animationDelay = `${delay}s`;
+                
+                particles.appendChild(particle);
+            }
+        }
+        
+        window.addEventListener('load', createParticles);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animate elements on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initial check for elements in view
+        window.addEventListener('load', animateOnScroll);
+        
+        // Check when scrolling
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
